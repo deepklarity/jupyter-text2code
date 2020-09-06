@@ -1,0 +1,53 @@
+intent_id,template
+0,import $libname
+1,import all libraries
+2,load $fname
+2,load $fname in $varname
+3,show $cardinal rows from $varname
+3,show $cardinal rows of $varname
+3,print $cardinal rows from $varname
+3,print $cardinal rows of $varname
+3,print $varname head
+4,plot histogram of $colname column in $varname
+4,plot histogram of $colname in $varname
+4,draw histogram of $colname column in $varname
+4,get histogram of $colname in $varname
+5,get correlation matrix of $varname
+6,print $varname shape
+6,print shape of $varname
+6,get size of $varname
+7,barplot $colname and $colname columns of $varname
+7,plot $colname and $colname columns of $varname in a bar plot
+7,bar plot $colname and $colname column of $varname
+7,bar plot $colname and $colname in $varname
+7,plot $colname and $colname of $varname in a bar plot
+7,plot $colname $colname of $varname in a bar plot
+7,show a bar plot with $colname on x axis over $colname in $varname
+7,show a bar plot with $colname on x axis and $colname on y axis in $varname
+7,show a bar plot with $colname on y axis and $colname on x axis
+8,piechart of $colname column in $varname grouped by $colname column
+8,piechart of $colname in $varname grouped by $colname
+8,pie chart of $colname column of $varname grouped by $colname column
+8,pie chart of column $colname in $varname grouped by column $colname
+8,pie chart of $colname of $varname coloured by $colname
+9,install $libname
+10,list columns of $varname
+10,list all columns of $varname
+11,describe $varname
+12,group $varname by $colname and get $function of $colname
+12,group the $varname by $colname and get $function of $colname
+12,$varname group by $colname $function by $colname
+12,find $function of $colname group by $colname from $varname
+12,$function $colname group by $colname from $varname
+12,$function $colname group by $colname from $varname
+13,display a line plot showing $colname vs $colname in $varname
+13,display a line plot showing $colname on y-axis and $colname on x-axis from $varname
+13,display a line plot of $colname versus $colname in $varname
+13,line plot of $colname and $colname in $varname
+14,show a scatter plot of $colname over $colname in $varname
+14,scatter plot of $colname and $colname in $varname
+15,show a heatmap with $colname on x axis and $colname on y axis in $varname
+15,display a heatmap of $colname on y axis and $colname on x axis in $varname
+15,heatmap of $colname and $colname in $varname
+16,list all files in current directory
+17,switch to dark theme

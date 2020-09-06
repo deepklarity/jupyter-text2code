@@ -1,0 +1,81 @@
+.notebook_app {
+	/*background:red !important;*/
+}
+
+#mopp_editor {
+	position: fixed;
+    bottom: 0;
+    width: 61%;
+    z-index: 999;
+    background: lightblue;
+    padding: 10px 35px;
+    margin-left: -14px;
+}
+
+#mopp_editor_history {
+	position: fixed;
+    top: 150px;
+    right: 10px;
+    background: lightblue;
+    padding: 5px;
+    width: 15%;
+}
+
+#mopp_preset_wrapper {
+	max-height: 250px;
+	overflow-y: scroll;
+}
+
+#mopp_history_wrapper {
+	max-height: 250px;
+	overflow-y: scroll;
+}
+
+#mopp_query {
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+}
+#mopp_history {
+	padding: 3px;
+}
+
+.mopp_history_item {
+	background: lightcyan;
+    margin: 10px 0px;
+    padding: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.mopp_preset_item {
+	background: lightcyan;
+    margin: 10px 0px;
+    padding: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.mopp_sub_heading {
+	padding: 3px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#mopp_preset_content {
+	padding: 3px;
+}
+
+.mopp_what_heading {
+	font-weight: bold;
+    padding: 5px;
+}
+
+#mopp_submit {
+    margin: 10px;
+}
+
+.mopp_spinner {
+	font-size: 22px;
+	margin-left: 10px;
+}

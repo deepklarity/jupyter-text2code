@@ -1,0 +1,9 @@
+{
+  "cnn_maxout_pieces":2,
+  "deprecation_fixes":{
+    "vectors_name":null
+  },
+  "pretrained_vectors":null,
+  "token_vector_width":96,
+  "conv_depth":4
+}

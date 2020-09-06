@@ -1,0 +1,16 @@
+# Ignore everything
+*.pyc
+.ipynb_checkpoints/
+
+# whitelist
+# ---------
+
+!.gitignore
+
+
+# Ignore following
+.idea
+mopp.egg-info/
+.pickle
+
+ner_train_data.pickle
