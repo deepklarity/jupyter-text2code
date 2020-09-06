@@ -1,3 +1,6 @@
+# Text2Code for Jupyter notebook
+
+![](mopp-demo.gif)
 
 ## Jupyter plugin Installation:
 ```
