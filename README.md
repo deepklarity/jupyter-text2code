@@ -1,4 +1,6 @@
 # Text2Code for Jupyter notebook
+### A proof-of-concept jupyter extension which converts english queries into relevant python code. 
+
 
 ![](mopp-demo.gif)
 
