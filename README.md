@@ -13,6 +13,14 @@
 pip install .
 ```
 
+## Usage Instructions:
+
+- Open Jupyter notebook
+- If installation happened successfully, then for the first time, Universal Sentence Encoder model will be downloaded from `tensorflow_hub`.
+- Click on the `Terminal` Icon which appears on the menu (to activate the extension)
+- Type "help" to see a list of currently supported commands in the repo
+- Watch [Demo video](https://www.youtube.com/watch?v=3gZ7_9W-TJs) for some examples
+
 ## Model training:
 
 ### Generate training data:
