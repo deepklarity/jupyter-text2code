@@ -52,6 +52,17 @@ cd scripts && python train_spacy_ner.py
 - modify `mopp/mopp_serverextension/__init__.py` with new intent's condition and add actual code for the intent
 - Reinstall plugin by running: `pip install .`
 
+### TODO:
+
+- [ ] Refactor code and make it mode modular, remove duplicate code, etc
+- [ ] Add support for more commands
+- [ ] Improve intent detection and NER
+- [ ] Explore sentence Paraphrasing to generate higher-quality training data
+- [ ] Gather real-world variable names, library names as opposed to randomly generating them
+- [ ] Try NER with a transformer-based model
+- [ ] With enough data, train a language model to directly do English->code like GPT-3 does, instead of having separate stages in the pipeline
+- [ ] Create a survey to collect linguistic data
+- [ ] Add Speech2Code support
 
 #### Authored By:
 
