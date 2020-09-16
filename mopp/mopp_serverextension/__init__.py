@@ -13,6 +13,12 @@ from notebook.utils import url_path_join
 import tensorflow_hub as hub
 
 home = os.path.dirname(__file__)
+
+# Explicitly persisting TFHUB_CACHE_DIR
+root = os.path.expanduser("~")
+os.makedirs(os.path.join(root, ".cache", "tfhub_modules"), exist_ok=True)
+os.environ["TFHUB_CACHE_DIR"] = os.path.join(root, ".cache", "tfhub_modules")
+
 SPACY_MODEL_DIR = os.path.join(home, "models/ner")
 FAISS_INDEX_PATH = os.path.join(home, "models/intent_index.idx")
 INTENT_DF_PATH = os.path.join(home, "data/ner_templates.csv")
@@ -473,6 +479,11 @@ pd.options.plotting.backend = 'plotly'
             # Dark theme
             return self._dark_theme(entities, debug=debug)
 
+print("*"*20)
+print("*"*20)
+print("loading_jupyter_server_extension: mopp. First installs will download universal-sentence-encoder, please wait...")
+print("*"*20)
+print("*"*20)
 CG = CodeGenerator()
 
 class MoppHandler(IPythonHandler):
@@ -507,7 +518,6 @@ def load_jupyter_server_extension(nb_server_app):
     Args:
         nb_server_app (NotebookWebApplication): handle to the Notebook webserver instance.
     """
-    print("loading_jupyter_server_extension: mopp")
     web_app = nb_server_app.web_app
     host_pattern = '.*$'
     route_pattern = url_path_join(web_app.settings['base_url'], '/mopp')

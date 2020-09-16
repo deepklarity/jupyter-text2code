@@ -12,11 +12,21 @@
 
 ## Supported Operating Systems:
 - Ubuntu
-- macOS [(with some extra manual steps)](https://github.com/deepklarity/jupyter-text2code/issues/8#issuecomment-692478839)
+- macOS
 
 ## Jupyter plugin Installation:
+### GPU install
 ```
 git clone https://github.com/deepklarity/jupyter-text2code.git
+cd jupyter-text2code
+pip install .
+```
+
+### CPU-only install
+For Mac and other Ubuntu installations not having a nvidia GPU, we need to explicitly set a environment variable at time of install.
+```
+git clone https://github.com/deepklarity/jupyter-text2code.git
+export JUPYTER_TEXT2CODE_MODE = "cpu"
 cd jupyter-text2code
 pip install .
 ```

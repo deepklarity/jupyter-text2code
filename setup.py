@@ -1,7 +1,16 @@
 import setuptools
+import atexit
+from setuptools.command.install import install
 import os
 from glob import glob
 
+MODE = os.environ.get("JUPYTER_TEXT2CODE_MODE")
+INSTALL_LIBS = ['numpy<1.19.0', 'tensorflow', 'jupyter', 'jupyter_nbextensions_configurator', 'pandas', 'spacy<3.0.0', 'tensorflow_hub', 'absl-py', 'plotly', 'matplotlib']
+
+if MODE and MODE.lower() == "cpu":
+    INSTALL_LIBS.append("faiss-cpu")
+else:
+    INSTALL_LIBS.append("faiss")
 
 def get_serverextension_files():
     data_files = []
@@ -34,7 +43,7 @@ setuptools.setup(
     license="BSD 3-Clause",
     description="Jupyter server extension to assist with data science EDA",
     packages=setuptools.find_packages(),
-    install_requires=['jupyter', 'jupyter_nbextensions_configurator', 'faiss', 'pandas', 'spacy', 'tensorflow', 'tensorflow_hub', 'absl-py', 'plotly', 'matplotlib'],
+    install_requires=INSTALL_LIBS,
     python_requires='>=3.5',
     classifiers=[
         'Framework :: Jupyter',
