@@ -1,6 +1,6 @@
-import setuptools
-import os
-from glob import glob
+import setuptools       #to allow developer to easily build and distribute Python Packages
+import os               #to enable interaction between the user and the operating system
+from glob import glob   #to retieve pathnames / files matching a specified pattern
 
 
 def get_serverextension_files():
