@@ -10,8 +10,14 @@
 ### Demo Video:
 #### [Text2Code for Jupyter notebook](https://www.youtube.com/watch?v=3gZ7_9W-TJs)
 
+## Supported Operating Systems:
+- Ubuntu
+- macOS [(with some extra manual steps)](https://github.com/deepklarity/jupyter-text2code/issues/8#issuecomment-692478839)
+
 ## Jupyter plugin Installation:
 ```
+git clone https://github.com/deepklarity/jupyter-text2code.git
+cd jupyter-text2code
 pip install .
 ```
 
@@ -55,6 +61,7 @@ cd scripts && python train_spacy_ner.py
 ### TODO:
 
 - [ ] Refactor code and make it mode modular, remove duplicate code, etc
+- [ ] Add support for Windows
 - [ ] Add support for more commands
 - [ ] Improve intent detection and NER
 - [ ] Explore sentence Paraphrasing to generate higher-quality training data
