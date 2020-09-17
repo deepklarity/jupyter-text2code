@@ -26,7 +26,7 @@ pip install .
 For Mac and other Ubuntu installations not having a nvidia GPU, we need to explicitly set a environment variable at time of install.
 ```
 git clone https://github.com/deepklarity/jupyter-text2code.git
-export JUPYTER_TEXT2CODE_MODE = "cpu"
+export JUPYTER_TEXT2CODE_MODE="cpu"
 cd jupyter-text2code
 pip install .
 ```

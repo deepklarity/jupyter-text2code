@@ -481,7 +481,7 @@ pd.options.plotting.backend = 'plotly'
 
 print("*"*20)
 print("*"*20)
-print("loading_jupyter_server_extension: mopp. First installs will download universal-sentence-encoder, please wait...")
+print("loading_jupyter_server_extension: jupyter-text2code. First install will download universal-sentence-encoder, please wait...")
 print("*"*20)
 print("*"*20)
 CG = CodeGenerator()
@@ -522,4 +522,4 @@ def load_jupyter_server_extension(nb_server_app):
     host_pattern = '.*$'
     route_pattern = url_path_join(web_app.settings['base_url'], '/mopp')
     web_app.add_handlers(host_pattern, [(route_pattern, MoppHandler)])
-    print("loaded_jupyter_server_extension: mopp")
+    print("loaded_jupyter_server_extension: jupyter-text2code")
