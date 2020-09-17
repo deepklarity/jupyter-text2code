@@ -5,7 +5,7 @@
 ![](mopp-demo.gif)
 
 ### Blog post with more details:
-#### [Data analysis made easy: Text2Code for Jupyter notebook](https://towardsdatascience.com/data-analysis-made-easy-text2code-for-jupyter-notebook-5380e89bb493)
+#### [Data analysis made easy: Text2Code for Jupyter notebook](https://towardsdatascience.com/data-analysis-made-easy-text2code-for-jupyter-notebook-5380e89bb493?source=friends_link&sk=2c46fff2c31f7fe59b667350e4596b18)
 
 ### Demo Video:
 #### [Text2Code for Jupyter notebook](https://www.youtube.com/watch?v=3gZ7_9W-TJs)
