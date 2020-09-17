@@ -14,3 +14,6 @@ mopp.egg-info/
 .pickle
 
 ner_train_data.pickle
+
+build/
+dist/

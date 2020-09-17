@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+import os
 import sys
 import pandas as pd
 import numpy as np
@@ -18,6 +18,11 @@ def get_embedding(command):
     command = re.sub('[^A-Za-z0-9 ]+', '', command).lower()
     command_embedding = list(np.array(embed([command])[0]))
     return command_embedding
+
+# Explicitly persisting TFHUB_CACHE_DIR
+root = os.path.expanduser("~")
+os.makedirs(os.path.join(root, ".cache", "tfhub_modules"), exist_ok=True)
+os.environ["TFHUB_CACHE_DIR"] = os.path.join(root, ".cache", "tfhub_modules")
 
 embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 

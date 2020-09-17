@@ -5,18 +5,28 @@
 ![](mopp-demo.gif)
 
 ### Blog post with more details:
-#### [Data analysis made easy: Text2Code for Jupyter notebook](https://towardsdatascience.com/data-analysis-made-easy-text2code-for-jupyter-notebook-5380e89bb493)
+#### [Data analysis made easy: Text2Code for Jupyter notebook](https://towardsdatascience.com/data-analysis-made-easy-text2code-for-jupyter-notebook-5380e89bb493?source=friends_link&sk=2c46fff2c31f7fe59b667350e4596b18)
 
 ### Demo Video:
 #### [Text2Code for Jupyter notebook](https://www.youtube.com/watch?v=3gZ7_9W-TJs)
 
 ## Supported Operating Systems:
 - Ubuntu
-- macOS [(with some extra manual steps)](https://github.com/deepklarity/jupyter-text2code/issues/8#issuecomment-692478839)
+- macOS
 
 ## Jupyter plugin Installation:
+### GPU install
 ```
 git clone https://github.com/deepklarity/jupyter-text2code.git
+cd jupyter-text2code
+pip install .
+```
+
+### CPU-only install
+For Mac and other Ubuntu installations not having a nvidia GPU, we need to explicitly set a environment variable at time of install.
+```
+git clone https://github.com/deepklarity/jupyter-text2code.git
+export JUPYTER_TEXT2CODE_MODE="cpu"
 cd jupyter-text2code
 pip install .
 ```
