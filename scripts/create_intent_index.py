@@ -12,7 +12,7 @@ import tensorflow as tf
 
 sys.path.append("../")
 
-DATA_DIR = "../mopp/mopp_serverextension/data"
+DATA_DIR = "../jupyter_text2code/jupyter_text2code_serverextension/data"
 
 def get_embedding(command):
     command = re.sub('[^A-Za-z0-9 ]+', '', command).lower()
@@ -41,6 +41,6 @@ zzz = np.stack(intent_df["embedding"].values).astype(np.float32)
 # faiss.normalize_L2(zzz)
 intent_index.add_with_ids(zzz, intent_df["intent_id"].values)
 # intent_index.add_with_ids(np.stack(intent_df["embedding"].values).astype(np.float32), intent_df["index"].values)
-faiss.write_index(intent_index, "../mopp/mopp_serverextension/models/intent_index.idx")
+faiss.write_index(intent_index, "../jupyter_text2code/jupyter_text2code_serverextension/models/intent_index.idx")
 
 print("Done")

@@ -10,10 +10,11 @@
 
 # Ignore following
 .idea
-mopp.egg-info/
+jupyter_text2code.egg-info/
 .pickle
 
 ner_train_data.pickle
 
 build/
 dist/
+venv

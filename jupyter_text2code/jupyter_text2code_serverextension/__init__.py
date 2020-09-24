@@ -1,16 +1,15 @@
 import json
 import os
 import re
-from os.path import expanduser
 
 import faiss
 import numpy as np
 import pandas as pd
 import spacy
-from notebook.base.handlers import IPythonHandler
-from notebook.utils import url_path_join
 # from sentence_transformers import SentenceTransformer
 import tensorflow_hub as hub
+from notebook.base.handlers import IPythonHandler
+from notebook.utils import url_path_join
 
 home = os.path.dirname(__file__)
 
@@ -22,7 +21,7 @@ os.environ["TFHUB_CACHE_DIR"] = os.path.join(root, ".cache", "tfhub_modules")
 SPACY_MODEL_DIR = os.path.join(home, "models/ner")
 FAISS_INDEX_PATH = os.path.join(home, "models/intent_index.idx")
 INTENT_DF_PATH = os.path.join(home, "data/ner_templates.csv")
-MOPP_SYNONYMS = {'mean':('average', 'avg', 'avg.'), 'sum': ('add')}
+SYNONYMS_MAPPING = {'mean': ('average', 'avg', 'avg.'), 'sum': ('add')}
 HELP_LIST = ['Import all libraries - Example Usage: import all libraries',
              'Use plotly dark theme - Example Usage: use dark theme',
              'Load file into a dataframe - Example Usage: Load train.csv in df',
@@ -41,6 +40,7 @@ HELP_LIST = ['Import all libraries - Example Usage: import all libraries',
              'List all files in current directory - Example Usage: List all files in current directory'
              ]
 HELP_TEXT = "\n".join([f"# {s}" for s in HELP_LIST])
+
 
 class CodeGenerator():
 
@@ -202,7 +202,7 @@ pd.options.plotting.backend = 'plotly'
             code += "#Couldn't extract column names, replacing with default\n"
 
         col_entities_str = json.dumps(col_entities)
-        code += varname_entities[0] + ".plot.hist(x="+col_entities_str+")"
+        code += varname_entities[0] + ".plot.hist(x=" + col_entities_str + ")"
         return code
 
     def _get_corr_matrix(self, entities, debug=False):
@@ -253,7 +253,7 @@ pd.options.plotting.backend = 'plotly'
             code += "#Couldn't extract column names, replacing with default\n"
 
         code += "px.bar(x='" + col_entities[0] + "',y='" + col_entities[1] + "',data_frame=" + varname_entities[0] + ",title='CustomTitle', labels=" \
-               + "{'" + col_entities[0] + "':'" + col_entities[0] + "','" + col_entities[1] + "':'" + col_entities[1] + "'})"
+                + "{'" + col_entities[0] + "':'" + col_entities[0] + "','" + col_entities[1] + "':'" + col_entities[1] + "'})"
 
         return code
 
@@ -276,7 +276,7 @@ pd.options.plotting.backend = 'plotly'
             code += "#Couldn't extract column name, replacing with default\n"
 
         code += "tmp = " + varname_entities[0] + "['" + col_entities[0] + "'].value_counts(dropna=False)\n" + \
-               "px.pie(tmp,values=tmp.values,names=tmp.index,title='CustomTitle')"
+                "px.pie(tmp,values=tmp.values,names=tmp.index,title='CustomTitle')"
         return code
 
     def _list_dir(self, entities, debug=False):
@@ -300,8 +300,8 @@ pd.options.plotting.backend = 'plotly'
             col_entities = ["xxx", "yyy"]
             code += "#Couldn't extract column names, replacing with default\n"
 
-        code += varname_entities[0] + ".plot.line(x='"+col_entities[0]+"', y='"+col_entities[1]+"', color=None, title='CustomTitle', labels=" \
-            + "{'"+col_entities[0]+"':'"+col_entities[0]+"', '"+col_entities[1]+"':'"+col_entities[1]+"'})"
+        code += varname_entities[0] + ".plot.line(x='" + col_entities[0] + "', y='" + col_entities[1] + "', color=None, title='CustomTitle', labels=" \
+                + "{'" + col_entities[0] + "':'" + col_entities[0] + "', '" + col_entities[1] + "':'" + col_entities[1] + "'})"
         return code
 
     def _scatter_plot(self, entities, debug=False):
@@ -322,8 +322,8 @@ pd.options.plotting.backend = 'plotly'
             col_entities = ["xxx", "yyy"]
             code += "#Couldn't extract column names, replacing with default\n"
 
-        code += varname_entities[0] + ".plot.scatter(x='"+col_entities[0]+"', y='"+col_entities[1]+"', color=None, size=None, title='CustomTitle', labels=" \
-            + "{'"+col_entities[0]+"':'"+col_entities[0]+"', '"+col_entities[1]+"':'"+col_entities[1]+"'})"
+        code += varname_entities[0] + ".plot.scatter(x='" + col_entities[0] + "', y='" + col_entities[1] + "', color=None, size=None, title='CustomTitle', labels=" \
+                + "{'" + col_entities[0] + "':'" + col_entities[0] + "', '" + col_entities[1] + "':'" + col_entities[1] + "'})"
         return code
 
     def _heatmap(self, entities, debug=False):
@@ -341,8 +341,8 @@ pd.options.plotting.backend = 'plotly'
             col_entities = ["xxx", "yyy"]
             code += "#Couldn't extract column names, replacing with default\n"
 
-        code += varname_entities[0] + ".plot(kind='density_heatmap', x='"+col_entities[0]+"', y='"+col_entities[1]+"', title='CustomTitle', labels=" \
-            + "{'"+col_entities[0]+"':'"+col_entities[0]+"', '"+col_entities[1]+"':'"+col_entities[1]+"'})"
+        code += varname_entities[0] + ".plot(kind='density_heatmap', x='" + col_entities[0] + "', y='" + col_entities[1] + "', title='CustomTitle', labels=" \
+                + "{'" + col_entities[0] + "':'" + col_entities[0] + "', '" + col_entities[1] + "':'" + col_entities[1] + "'})"
         return code
 
     def _aggregation(self, entities, debug=False):
@@ -381,7 +381,7 @@ pd.options.plotting.backend = 'plotly'
         if len(quote_cols) == 1:
             code += f"{varname_entities[0]}.groupby([{','.join(quote_cols)}]).agg([{','.join(quote_funcs)}])"
         else:
-            code += f"{varname_entities[0]}[[{','.join(quote_cols)}]].groupby([{','.join(quote_cols[:split_idx+1])}]).agg([{','.join(quote_funcs)}])"
+            code += f"{varname_entities[0]}[[{','.join(quote_cols)}]].groupby([{','.join(quote_cols[:split_idx + 1])}]).agg([{','.join(quote_funcs)}])"
         return code
 
     def _dark_theme(self, entities, debug=False):
@@ -389,7 +389,7 @@ pd.options.plotting.backend = 'plotly'
         return code
 
     def synonym_key(self, value, debug=False):
-        for k, v in MOPP_SYNONYMS.items():
+        for k, v in SYNONYMS_MAPPING.items():
             if value in v:
                 if debug:
                     print(f"Use {k} for synonym {value}")
@@ -479,17 +479,19 @@ pd.options.plotting.backend = 'plotly'
             # Dark theme
             return self._dark_theme(entities, debug=debug)
 
-print("*"*20)
-print("*"*20)
+
+print("*" * 20)
+print("*" * 20)
 print("loading_jupyter_server_extension: jupyter-text2code. First install will download universal-sentence-encoder, please wait...")
-print("*"*20)
-print("*"*20)
+print("*" * 20)
+print("*" * 20)
 CG = CodeGenerator()
 
-class MoppHandler(IPythonHandler):
+
+class JupyterText2CodeHandler(IPythonHandler):
     def __init__(self, application, request, **kwargs):
-        # self.cg = CodeGenerator()
-        super(MoppHandler, self).__init__(application, request, **kwargs)
+        super(JupyterText2CodeHandler, self).__init__(application, request, **kwargs)
+
     # TODO: Add logger
     def get(self):
         query = self.get_argument('query')
@@ -520,6 +522,6 @@ def load_jupyter_server_extension(nb_server_app):
     """
     web_app = nb_server_app.web_app
     host_pattern = '.*$'
-    route_pattern = url_path_join(web_app.settings['base_url'], '/mopp')
-    web_app.add_handlers(host_pattern, [(route_pattern, MoppHandler)])
+    route_pattern = url_path_join(web_app.settings['base_url'], '/jupyter-text2code')
+    web_app.add_handlers(host_pattern, [(route_pattern, JupyterText2CodeHandler)])
     print("loaded_jupyter_server_extension: jupyter-text2code")

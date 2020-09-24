@@ -1,5 +1,5 @@
  {
   "load_extensions": {
-     "mopp": true
+     "jupyter-text2code": true
   }
 }

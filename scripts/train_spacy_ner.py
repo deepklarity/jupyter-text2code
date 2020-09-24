@@ -47,7 +47,7 @@ TRAIN_DATA = pickle.load(pickle_in)
     output_dir=("Optional output directory", "option", "o", Path),
     n_iter=("Number of training iterations", "option", "n", int),
 )
-def main(model=None, output_dir="../mopp/mopp_serverextension/models/ner", n_iter=10):
+def main(model=None, output_dir="../jupyter_text2code/jupyter_text2code_serverextension/models/ner", n_iter=10):
     """Load the model, set up the pipeline and train the entity recognizer."""
     if model is not None:
         nlp = spacy.load(model)  # load existing spaCy model
