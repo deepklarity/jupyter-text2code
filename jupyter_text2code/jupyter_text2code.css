@@ -2,7 +2,7 @@
 	/*background:red !important;*/
 }
 
-#mopp_editor {
+#jupyter_text2code_editor {
 	position: fixed;
     bottom: 0;
     width: 61%;
@@ -12,7 +12,7 @@
     margin-left: -14px;
 }
 
-#mopp_editor_history {
+#jupyter_text2code_editor_history {
 	position: fixed;
     top: 150px;
     right: 10px;
@@ -21,26 +21,26 @@
     width: 15%;
 }
 
-#mopp_preset_wrapper {
+#jupyter_text2code_preset_wrapper {
 	max-height: 250px;
 	overflow-y: scroll;
 }
 
-#mopp_history_wrapper {
+#jupyter_text2code_history_wrapper {
 	max-height: 250px;
 	overflow-y: scroll;
 }
 
-#mopp_query {
+#jupyter_text2code_query {
     height: 50px;
     width: 100%;
     font-size: 20px;
 }
-#mopp_history {
+#jupyter_text2code_history {
 	padding: 3px;
 }
 
-.mopp_history_item {
+.jupyter_text2code_history_item {
 	background: lightcyan;
     margin: 10px 0px;
     padding: 5px;
@@ -48,7 +48,7 @@
     cursor: pointer;
 }
 
-.mopp_preset_item {
+.jupyter_text2code_preset_item {
 	background: lightcyan;
     margin: 10px 0px;
     padding: 5px;
@@ -56,26 +56,26 @@
     cursor: pointer;
 }
 
-.mopp_sub_heading {
+.jupyter_text2code_sub_heading {
 	padding: 3px;
 	font-size: 14px;
 	font-weight: bold;
 }
 
-#mopp_preset_content {
+#jupyter_text2code_preset_content {
 	padding: 3px;
 }
 
-.mopp_what_heading {
+.jupyter_text2code_what_heading {
 	font-weight: bold;
     padding: 5px;
 }
 
-#mopp_submit {
+#jupyter_text2code_submit {
     margin: 10px;
 }
 
-.mopp_spinner {
+.jupyter_text2code_spinner {
 	font-size: 22px;
 	margin-left: 10px;
 }

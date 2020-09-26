@@ -1,46 +1,46 @@
-import setuptools
-import atexit
-from setuptools.command.install import install
 import os
 from glob import glob
 
+import setuptools
+
 MODE = os.environ.get("JUPYTER_TEXT2CODE_MODE")
-INSTALL_LIBS = ['numpy<1.19.0', 'tensorflow', 'jupyter', 'jupyter_nbextensions_configurator', 'pandas', 'spacy<3.0.0', 'tensorflow_hub', 'absl-py', 'plotly', 'matplotlib']
+INSTALL_LIBS = ['numpy<1.19.0', 'tensorflow', 'jupyter', 'jupyter_contrib_nbextensions', 'pandas', 'spacy==2.3.2', 'tensorflow_hub', 'absl-py', 'plotly', 'matplotlib']
 
 if MODE and MODE.lower() == "cpu":
     INSTALL_LIBS.append("faiss-cpu")
 else:
     INSTALL_LIBS.append("faiss")
 
+
 def get_serverextension_files():
     data_files = []
-    for f in glob('mopp/mopp_serverextension/**', recursive=True):
+    for f in glob('jupyter_text2code/jupyter_text2code_serverextension/**', recursive=True):
         if os.path.isfile(f):
-            relative_common_path = "/".join(f.split("/")[:-1])
-            data_files.append((os.path.join("share/jupyter/nbextensions/", relative_common_path), 
-                [f]))
+            frags = f.split("/")[:-1]
+            frags[0] = 'jupyter-text2code'
+            relative_common_path = "/".join(frags)
+            data_files.append((os.path.join("share/jupyter/nbextensions/", relative_common_path), [f]))
     return data_files
 
+
 data_files = [
-    ('share/jupyter/nbextensions/mopp', [
-        "mopp/__init__.py",
-        "mopp/mopp.yaml",
-        "mopp/main.js",
-        "mopp/mopp.css",
-        "mopp/mopp_lib.py"]),
-    # ('share/jupyter/nbextensions/mopp/mopp_serverextension', [f for f in glob('mopp/mopp_serverextension/*', recursive=True) if os.path.isfile(f)]),
-    ('etc/jupyter/jupyter_notebook_config.d', ['mopp/etc/mopp-serverextension.json']),
-    ('etc/jupyter/nbconfig/tree.d', ['mopp/etc/mopp-nbextension.json'])
+    ('share/jupyter/nbextensions/jupyter-text2code', [
+        "jupyter_text2code/__init__.py",
+        "jupyter_text2code/jupyter_text2code.yaml",
+        "jupyter_text2code/main.js",
+        "jupyter_text2code/jupyter_text2code.css",
+        "jupyter_text2code/jupyter_text2code_lib.py"]),
+    ('etc/jupyter/jupyter_notebook_config.d', ['jupyter_text2code/etc/jupyter-text2code-extension.json'])
 ]
 
 data_files.extend(get_serverextension_files())
 
 setuptools.setup(
-    name="mopp",
-    version='0.0.1',
-    url="",
+    name="jupyter-text2code",
+    version='0.0.2',
+    url="https://github.com/deepklarity/jupyter-text2code",
     author="Deepak Rawat and Kartik Godawat",
-    license="BSD 3-Clause",
+    license="MIT License",
     description="Jupyter server extension to assist with data science EDA",
     packages=setuptools.find_packages(),
     install_requires=INSTALL_LIBS,

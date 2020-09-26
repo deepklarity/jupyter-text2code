@@ -22,7 +22,7 @@ class Entities(Enum):
 class TrainDataGenerator:
     
     def __init__(self, mode):        
-        TEMPLATE_FILE = "../mopp/mopp_serverextension/data/ner_templates.csv"
+        TEMPLATE_FILE = "../jupyter_text2code/jupyter_text2code_serverextension/data/ner_templates.csv"
         self.templates_df = pd.read_csv(TEMPLATE_FILE)
         self.mode = mode # intent or ner
 
@@ -162,7 +162,7 @@ def intent_data(n_rows=1000):
     tdg = TrainDataGenerator(mode="intent")
     rows = tdg.generate_training_rows(n_rows=n_rows)
     df_intent = pd.DataFrame(rows)
-    df_intent.to_csv("../mopp/mopp_serverextension/data/generated_intents.csv", index=False)
+    df_intent.to_csv("../jupyter_text2code/jupyter_text2code_serverextension/data/generated_intents.csv", index=False)
     print("Generated intent data")
 
 # TODO: Replace plac with fire

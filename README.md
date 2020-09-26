@@ -2,7 +2,7 @@
 ### A proof-of-concept jupyter extension which converts english queries into relevant python code. 
 
 
-![](mopp-demo.gif)
+![](jupyter-text2code-demo.gif)
 
 ### Blog post with more details:
 #### [Data analysis made easy: Text2Code for Jupyter notebook](https://towardsdatascience.com/data-analysis-made-easy-text2code-for-jupyter-notebook-5380e89bb493?source=friends_link&sk=2c46fff2c31f7fe59b667350e4596b18)
@@ -15,6 +15,11 @@
 - macOS
 
 ## Jupyter plugin Installation:
+### NOTE: We have renamed the plugin from mopp to jupyter-text2code. Uninstall mopp before installing new jupyter-text2code version.
+```
+pip uninstall mopp
+```
+
 ### GPU install
 ```
 git clone https://github.com/deepklarity/jupyter-text2code.git
@@ -31,6 +36,11 @@ cd jupyter-text2code
 pip install .
 ```
 
+## Jupyter plugin Uninstallation:
+```
+pip uninstall jupyter-text2code
+```
+
 ## Usage Instructions:
 
 - Open Jupyter notebook
@@ -42,7 +52,7 @@ pip install .
 ## Model training:
 
 ### Generate training data:
-From a list of templates present at `mopp/mopp_serverextension/data/ner_templates.csv`, generate training data by running the following command:
+From a list of templates present at `jupyter_text2code/jupyter_text2code_serverextension/data/ner_templates.csv`, generate training data by running the following command:
 ```
 cd scripts && python generate_training_data.py
 ```
@@ -65,7 +75,7 @@ cd scripts && python train_spacy_ner.py
 - Generate training data. Modify `generate_training_data.py` if different generation techniques are needed or if introducing a new entity.
 - Train intent index
 - Train NER model
-- modify `mopp/mopp_serverextension/__init__.py` with new intent's condition and add actual code for the intent
+- modify `jupyter_text2code/jupyter_text2code_serverextension/__init__.py` with new intent's condition and add actual code for the intent
 - Reinstall plugin by running: `pip install .`
 
 ### TODO:

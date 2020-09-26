@@ -1,0 +1,10 @@
+ {
+  "NotebookApp": {
+  	"load_extensions": {
+     "jupyter-text2code/main": true
+  },
+    "nbserver_extensions": {
+      "jupyter_text2code.jupyter_text2code_serverextension": true
+    }
+  }
+}

@@ -1,6 +1,6 @@
 Type: IPython Notebook Extension
 Compatibility: 3.x, 4.x, 5.x, 6.x
 Main: main.js
-Name: mopp
+Name: jupyter-text2code
 Icon: icon.jpg
-Description: "Jupyter Text2Code plugin with pandas and plotly support"
+Description: "jupyter-text2code plugin with pandas and plotly support"
