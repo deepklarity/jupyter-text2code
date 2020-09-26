@@ -30,8 +30,7 @@ data_files = [
         "jupyter_text2code/main.js",
         "jupyter_text2code/jupyter_text2code.css",
         "jupyter_text2code/jupyter_text2code_lib.py"]),
-    ('etc/jupyter/jupyter_notebook_config.d', ['jupyter_text2code/etc/jupyter-text2code-serverextension.json']),
-    ('etc/jupyter/nbconfig/tree.d', ['jupyter_text2code/etc/jupyter-text2code-nbextension.json'])
+    ('etc/jupyter/jupyter_notebook_config.d', ['jupyter_text2code/etc/jupyter-text2code-extension.json'])
 ]
 
 data_files.extend(get_serverextension_files())
