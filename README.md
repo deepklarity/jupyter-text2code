@@ -93,5 +93,5 @@ cd scripts && python train_spacy_ner.py
 
 #### Authored By:
 
-- [Deepak Rawat](https://twitter.com/deepak_s_rawat)
+- [Deepak Rawat](https://twitter.com/dsr_ai)
 - [Kartik Godawat](https://twitter.com/kartik_godawat)
