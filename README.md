@@ -80,6 +80,7 @@ cd scripts && python train_spacy_ner.py
 
 ### TODO:
 
+- [ ] Publish Docker image
 - [ ] Refactor code and make it mode modular, remove duplicate code, etc
 - [ ] Add support for Windows
 - [ ] Add support for more commands
