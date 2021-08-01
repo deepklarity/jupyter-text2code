@@ -58,6 +58,14 @@ pip uninstall jupyter-text2code
 - Type "help" to see a list of currently supported commands in the repo
 - Watch [Demo video](https://www.youtube.com/watch?v=3gZ7_9W-TJs) for some examples
 
+## Docker containers for jupyter-text2code
+
+We have published CPU and GPU images to docker hub with all dependencies pre-installed.
+##### Visit https://hub.docker.com/r/deepklarity/jupyter-text2code/ to download the images and usage instructions.
+
+##### CPU image size: ``` 1.51 GB ``` 
+##### GPU image size: ``` 2.56 GB ```
+
 ## Model training:
 
 ### Generate training data:
@@ -89,7 +97,7 @@ cd scripts && python train_spacy_ner.py
 
 ### TODO:
 
-- [ ] Publish Docker image
+- [x] Publish Docker image
 - [ ] Refactor code and make it mode modular, remove duplicate code, etc
 - [ ] Add support for Windows
 - [ ] Add support for more commands

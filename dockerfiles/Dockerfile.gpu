@@ -1,0 +1,9 @@
+# syntax = edrevo/dockerfile-plus
+FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+
+RUN --mount=type=cache,mode=0777,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
+    apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common libopenblas-dev libomp-dev \
+    && add-apt-repository ppa:deadsnakes/ppa && apt-get -y update && apt-get -y install python3.7 python3-pip \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
+INCLUDE+ dockerfiles/Dockerfile.common

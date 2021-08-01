@@ -1,0 +1,6 @@
+# syntax = edrevo/dockerfile-plus
+FROM python:3.7-slim
+
+ENV JUPYTER_TEXT2CODE_MODE="cpu"
+
+INCLUDE+ dockerfiles/Dockerfile.common
