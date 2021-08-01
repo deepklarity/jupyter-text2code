@@ -14,37 +14,46 @@
 - Ubuntu
 - macOS
 
-## Jupyter plugin Installation:
+## Installation
+
 ### NOTE: We have renamed the plugin from mopp to jupyter-text2code. Uninstall mopp before installing new jupyter-text2code version.
 ```
 pip uninstall mopp
 ```
 
-### GPU install
+#### CPU-only install:
+For Mac and other Ubuntu installations not having a nvidia GPU, we need to explicitly set an environment variable at time of install.
 ```
-git clone https://github.com/deepklarity/jupyter-text2code.git
-cd jupyter-text2code
-pip install .
-```
-
-### CPU-only install
-For Mac and other Ubuntu installations not having a nvidia GPU, we need to explicitly set a environment variable at time of install.
-```
-git clone https://github.com/deepklarity/jupyter-text2code.git
 export JUPYTER_TEXT2CODE_MODE="cpu"
-cd jupyter-text2code
-pip install .
+
 ```
 
-## Jupyter plugin Uninstallation:
+#### GPU install dependencies:
+```
+sudo apt-get install libopenblas-dev libomp-dev
+```
+
+#### Installation commands:
+
+```
+git clone https://github.com/deepklarity/jupyter-text2code.git
+cd jupyter-text2code
+pip install .
+jupyter nbextension enable jupyter-text2code/main
+
+```
+
+## Uninstallation:
 ```
 pip uninstall jupyter-text2code
 ```
 
 ## Usage Instructions:
 
-- Open Jupyter notebook
-- If installation happened successfully, then for the first time, Universal Sentence Encoder model will be downloaded from `tensorflow_hub`.
+- Start Jupyter notebook server by running the following command: ``` jupyter notebook ```
+- If you don't see ``` Nbextensions```  tab in Jupyter notebook run the following command:``` jupyter contrib nbextension install --user ```
+- You can open the sample ``` notebooks/ctds.ipynb```  notebook for testing
+- If installation happened successfully, then for the first time, Universal Sentence Encoder model will be downloaded from `tensorflow_hub`
 - Click on the `Terminal` Icon which appears on the menu (to activate the extension)
 - Type "help" to see a list of currently supported commands in the repo
 - Watch [Demo video](https://www.youtube.com/watch?v=3gZ7_9W-TJs) for some examples
