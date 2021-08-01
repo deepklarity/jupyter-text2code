@@ -44,7 +44,7 @@ setuptools.setup(
     description="Jupyter server extension to assist with data science EDA",
     packages=setuptools.find_packages(),
     install_requires=INSTALL_LIBS,
-    python_requires='>=3.5',
+    python_requires='>=3.7',
     classifiers=[
         'Framework :: Jupyter',
     ],
