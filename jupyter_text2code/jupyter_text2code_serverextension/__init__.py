@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-import faiss
+import faiss-cpu
 import numpy as np
 import pandas as pd
 import spacy

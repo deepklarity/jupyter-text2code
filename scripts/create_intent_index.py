@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import re
-import faiss
+import faiss-cpu
 import tensorflow_hub as hub
 import tensorflow as tf
 
