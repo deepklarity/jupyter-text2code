@@ -58,7 +58,7 @@ pip uninstall jupyter-text2code
 - Type "help" to see a list of currently supported commands in the repo
 - Watch [Demo video](https://www.youtube.com/watch?v=3gZ7_9W-TJs) for some examples
 
-## Docker containers for jupyter-text2code
+## Docker containers for jupyter-text2code (old version)
 
 We have published CPU and GPU images to docker hub with all dependencies pre-installed.
 ##### Visit https://hub.docker.com/r/deepklarity/jupyter-text2code/ to download the images and usage instructions.
@@ -67,25 +67,11 @@ We have published CPU and GPU images to docker hub with all dependencies pre-ins
 ##### GPU image size: ``` 2.56 GB ```
 
 ## Model training:
+The plugin now supports pandas commands + quick snippet insertion of available snippets from [awesome-notebooks](https://github.com/jupyter-naas/awesome-notebooks). With this change, we can now get snippets for most popular integrations from within the jupyter tab. eg:
+- Get followers count from twitter
+- Get stats about a story from instagram
+The detailed training steps are available in [scripts README](scripts/README.md) where we also evaluated performance of different models and ended up selecting SentenceTransformers `paraphrase-MiniLM-L6-v2` 
 
-### Generate training data:
-From a list of templates present at `jupyter_text2code/jupyter_text2code_serverextension/data/ner_templates.csv`, generate training data by running the following command:
-```
-cd scripts && python generate_training_data.py
-```
-This command will generate data for intent matching and NER(Named Entity Recognition).
-
-### Create intent index faiss
-Use the generated data to create a intent-matcher using faiss.
-
-```
-cd scripts && python create_intent_index.py
-```
-
-### Train NER model
-```
-cd scripts && python train_spacy_ner.py
-```
 
 ### Steps to add more intents:
 - Add more templates in `ner_templates` with a new intent_id
@@ -98,10 +84,10 @@ cd scripts && python train_spacy_ner.py
 ### TODO:
 
 - [x] Publish Docker image
-- [ ] Refactor code and make it mode modular, remove duplicate code, etc
+- [X] Refactor code and make it mode modular, remove duplicate code, etc
+- [X] Add support for more commands
+- [X] Improve intent detection and NER
 - [ ] Add support for Windows
-- [ ] Add support for more commands
-- [ ] Improve intent detection and NER
 - [ ] Explore sentence Paraphrasing to generate higher-quality training data
 - [ ] Gather real-world variable names, library names as opposed to randomly generating them
 - [ ] Try NER with a transformer-based model
@@ -113,3 +99,4 @@ cd scripts && python train_spacy_ner.py
 
 - [Deepak Rawat](https://twitter.com/dsr_ai)
 - [Kartik Godawat](https://twitter.com/kartik_godawat)
+- [Abdullah Meda](https://www.linkedin.com/in/abdmeda/)
