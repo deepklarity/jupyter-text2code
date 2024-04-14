@@ -82,7 +82,7 @@ The detailed training steps are available in [scripts README](scripts/README.md)
 - Reinstall plugin by running: `pip install .`
 
 ### TODO:
-
+- [] Add Ollama support to work with local LLMs
 - [x] Publish Docker image
 - [X] Refactor code and make it mode modular, remove duplicate code, etc
 - [X] Add support for more commands
